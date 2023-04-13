@@ -4,4 +4,9 @@
 
 .btn {
   border-radius: 10px;
+  width: 100%;
+}
+
+.btn-group-vertical {
+  width: 100%;
 }
