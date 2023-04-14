@@ -3,9 +3,9 @@ let searchBtn = $("#searchBtn");
 let citySearch = $(".form-control");
 
 function searchcity () {
-  let requestCurrent = "api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
+  let requestCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
 
-  let showForecast = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=" + apiKey; //geocoding api in order to convert city or zip code to lat/long to fetch information in the forecast api//
+  let showForecast = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=" + apiKey; //geocoding api in order to convert city or zip code to lat/long to fetch information in the forecast api;https://openweathermap.org/api/geocoding-api//
 
   fetch(requestCurrent)
   .then(function (response) {
@@ -13,12 +13,11 @@ function searchcity () {
   })
   .then(function (data) {
     console.log(data)
-    const forecastArray = sample.list.filter( (_dayObj, idx) => idx % 8 === 0)
-    console.log(forecastArray)
   });
 }
 
-
+// const forecastArray = sample.list.filter( (_dayObj, idx) => idx % 8 === 0) //this awesome line of code provided by our instructor to help 
+//     console.log(forecastArray)
 
 
 
