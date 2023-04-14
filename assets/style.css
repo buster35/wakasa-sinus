@@ -11,6 +11,6 @@
   width: 100%;
 }
 
-.five-day-forecast {
-  flex-direction: row;
+#forecast {
+  font-size: 75%;
 }
