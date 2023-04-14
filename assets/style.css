@@ -11,6 +11,6 @@
   width: 100%;
 }
 
-/* .card bg-dark {
-  color: var(--bs-emphasis-white)
-} */
+.five-day-forecast {
+  flex-direction: row;
+}
