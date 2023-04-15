@@ -24,25 +24,22 @@
           <div class="col-4">
             <aside>
               <h2>Search for a City</h2>
-              
-                
-                <input
-                  id="input"
-                  type="text"
-                  name="formcontrol"
-                  placeholder="City"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
-                />
-                
-                <button
-                  class="btn btn-success search-box gy-3"
-                  type="button"
-                  id="searchbtn"
-                >
-                  Search
-                </button>
-              
+              <input
+                id="input"
+                type="text"
+                name="formcontrol"
+                placeholder="City"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+              <button
+                class="btn btn-success search-box gy-3"
+                type="button"
+                id="searchbtn"
+              >
+                Search
+              </button>
+
               <hr />
               <div
                 class="btn-group-vertical gap-2"
@@ -79,9 +76,11 @@
                 <div class="col-12">
                   <section>
                     <div class="card" style="width: auto">
-                      <div class="card-body">
-                        <h5 class="card-title" id="city">City name goes here...</h5>
-                        <p class="card-text" id="temp">Temperature:</p>
+                      <div class="card-body" id="currentwx">
+                        <h5 class="card-title" id="city">
+                          City name goes here...
+                        </h5>
+                        <p class="card-text">Temperature: <span id="fahrenheit"></span></p>
                         <p class="card-text" id="wind">Wind:</p>
                         <p class="card-text" id="humidity">Humidity:</p>
                       </div>
@@ -91,7 +90,10 @@
                 <hr />
 
                 <div class="container-fluid">
-                  <section class="row row-cols-auto five-day-forecast" id="forecast">
+                  <section
+                    class="row row-cols-auto five-day-forecast"
+                    id="forecast"
+                  >
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
                         <h5 class="card-title">City name goes here...</h5>
@@ -100,10 +102,7 @@
                         <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                    <div
-                      class="card bg-dark"
-                      style="width: auto; color: white"
-                    >
+                    <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
                         <h5 class="card-title">City name goes here...</h5>
                         <p class="card-text">Temperature:</p>
@@ -111,10 +110,7 @@
                         <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                    <div
-                      class="card bg-dark"
-                      style="width: auto; color: white"
-                    >
+                    <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
                         <h5 class="card-title">City name goes here...</h5>
                         <p class="card-text">Temperature:</p>
@@ -122,10 +118,7 @@
                         <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                    <div
-                      class="card bg-dark"
-                      style="width: auto; color: white"
-                    >
+                    <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
                         <h5 class="card-title">City name goes here...</h5>
                         <p class="card-text">Temperature:</p>
@@ -133,10 +126,7 @@
                         <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                    <div
-                      class="card bg-dark"
-                      style="width: auto; color: white"
-                    >
+                    <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
                         <h5 class="card-title">City name goes here...</h5>
                         <p class="card-text">Temperature:</p>

@@ -1,8 +1,6 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
 
- //
-
 function searchcity () {
   let citySearch = document.getElementById("input").value;
   let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
@@ -12,7 +10,7 @@ function searchcity () {
   })
   .then(function (data) {
     console.log(data) //returns an object; now that we have it, if we know how to access the object we can display that data//
-    populateCurrent() //we will grab info and set it on page using this fn
+    populateCurrent(data) //we will grab info and set it on page using this fn
   });
 }
 
@@ -27,10 +25,21 @@ function fiveDay () {
   });
 }
 
-function populateCurrent () {
+function populateCurrent (data) { //i think i can do it without a for loop
+  // let currentWx = document.querySelector("#currentwx")
+  let cityName = document.getElementById("city")
+  let cityData = data.name
+  cityName.innerText = cityData
+  temperatureConverter(data)
+  
   
 }
 
+function temperatureConverter(data) {
+  let kelvin = data.main.temp
+  kelvin = parseFloat(kelvin);
+  document.getElementById("fahrenheit").innerHTML=((kelvin-273.15)*1.8)+32; //kelvin -> fahrenheit temp converter found on W3 Schools//
+}
 
 
 
