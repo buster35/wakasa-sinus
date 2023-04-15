@@ -1,9 +1,9 @@
-let apiKey = "faf3069d4928546472d6c4fe7cde6b6d";
-let searchBtn = $("#searchBtn");
-let citySearch = $(".form-control");
+let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
+let searchBtn = document.getElementById("searchbtn");
+let citySearch = document.querySelector(".form-control");
 
 function searchcity () {
-  let requestCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
+  let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
   fetch(requestCurrent)
   .then(function (response) {
     return response.json()
@@ -20,12 +20,16 @@ function fiveDay () {
     return response.json()
   })
   .then(function (data) {
-    console.log(data)
+    console.log(data) //data we're getting from open weather 5/day
   });
 }
 
+
+//first, lets get the first fetch function to work
+//i want to be able to create variables for each of the divs i want to add text to
+
 // const forecastArray = sample.list.filter( (_dayObj, idx) => idx % 8 === 0) //this awesome line of code provided by our instructor to help 
-//     console.log(forecastArray)
+// console.log(forecastArray)
 
 
 
@@ -50,7 +54,7 @@ function fiveDay () {
 
 
 
-$(searchBtn).on("click", function (e) {
+searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
   searchcity()
 })
