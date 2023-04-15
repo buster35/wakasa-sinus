@@ -36,10 +36,13 @@ function populateCurrent (data) {
     cityTitle[i].innerHTML = data.name
   }
   temperatureConverter(data)
+  console.log(data)
+  let currentTime = new Date().toLocaleDateString("en-us", {year:"numeric", month:"short", day:"numeric"});
+  document.getElementById("datestamp1").textContent = currentTime
   document.getElementById("wind").innerHTML = Math.round(data.wind.speed) + "mph";
   document.getElementById("humidity").innerHTML = data.main.humidity + "%";
   fiveDay(data)
-}
+};
 
 function temperatureConverter(data) { 
   let kelvin = data.main.temp
@@ -61,7 +64,7 @@ function populateForecast (data) {
   document.getElementById("temp3").innerHTML = arr[2]
   document.getElementById("temp4").innerHTML = arr[3]
   document.getElementById("temp5").innerHTML = arr[4]
-
+  //can i array these?
   document.getElementById("wind1").innerHTML = Math.round(data[0].wind.speed) + "mph"
   document.getElementById("wind2").innerHTML = Math.round(data[1].wind.speed) + "mph"
   document.getElementById("wind3").innerHTML = Math.round(data[2].wind.speed) + "mph"
