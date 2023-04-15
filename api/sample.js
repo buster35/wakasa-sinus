@@ -2,7 +2,7 @@ var sample = { //object containing search results; sample.list//
   cod: "200",
   message: 0,
   cnt: 40,
-  list: [{ //array of objects//
+  list: [{ //array of 40 objects//
     dt: 1681333200,
     main: {
       temp: 296.84,

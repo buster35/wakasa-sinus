@@ -1,7 +1,7 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
 
-function searchCity () {
+function searchCity () { //working
   let citySearch = document.getElementById("input").value;
   let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
   fetch(requestCurrent)
@@ -14,15 +14,16 @@ function searchCity () {
   });
 }
 
-function fiveDay () {
-  let showForecast = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=" + apiKey; //geocoding api in order to convert city or zip code to lat/long to fetch information in the forecast api;https://openweathermap.org/api/geocoding-api//
+function fiveDay (data) {
+  let lat = data.coord.lat
+  let lon = data.coord.lon
+  let showForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`; //geocoding api in order to convert city or zip code to lat/long to fetch information in the forecast api;https://openweathermap.org/api/geocoding-api//
   fetch(showForecast)
   .then(function (response) {
     return response.json()
   })
   .then(function (data) {
-    console.log(data)
-    //populateForecast(data) //data we're getting from open weather.org 5/day api//
+    console.log(data) //i have data, this is where the function comes in//
   });
 }
 
@@ -34,6 +35,7 @@ function populateCurrent (data) {
   temperatureConverter(data)
   document.getElementById("wind").innerHTML = Math.round(data.wind.speed) + "mph";
   document.getElementById("humidity").innerHTML = data.main.humidity + "%";
+  fiveDay(data)
 }
 
 function temperatureConverter(data) { 
