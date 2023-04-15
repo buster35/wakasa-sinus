@@ -25,20 +25,18 @@ function fiveDay () {
   });
 }
 
-function populateCurrent (data) { //i think i can do it without a for loop
-  // let currentWx = document.querySelector("#currentwx")
-  let cityName = document.getElementById("city")
-  let cityData = data.name
-  cityName.innerText = cityData
+function populateCurrent (data) { //done
+  document.getElementById("city").innerHTML = data.name
   temperatureConverter(data)
-  
+  document.getElementById("wind").innerHTML=Math.round(data.wind.speed) + "mph";
+  document.getElementById("humidity").innerHTML=data.main.humidity + "%";
   
 }
 
-function temperatureConverter(data) {
+function temperatureConverter(data) { //done
   let kelvin = data.main.temp
   kelvin = parseFloat(kelvin);
-  document.getElementById("fahrenheit").innerHTML=((kelvin-273.15)*1.8)+32; //kelvin -> fahrenheit temp converter found on W3 Schools//
+  document.getElementById("fahrenheit").innerHTML=Math.round(((kelvin-273.15)*1.8))+32; //kelvin -> fahrenheit temp converter found on W3 Schools//
 }
 
 
