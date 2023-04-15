@@ -23,7 +23,10 @@ function fiveDay (data) {
     return response.json()
   })
   .then(function (data) {
-    console.log(data) //i have data, this is where the function comes in//
+    let sample = data.list //array of 40 objects//
+    let forecast = sample.filter((_dayObj, idx) => idx % 8 === 0) //this awesome line of code provided by our instructor//
+    console.log(forecast)
+    populateForecast(data)
   });
 }
 
@@ -44,9 +47,9 @@ function temperatureConverter(data) {
   document.getElementById("fahrenheit").innerHTML=Math.round(((kelvin-273.15)*1.8))+32; //kelvin -> fahrenheit temp converter found on W3 Schools//
 }
 
-// function populateForecast (data) {
-
-// }
+function populateForecast (data) {
+  
+}
 
 
 
