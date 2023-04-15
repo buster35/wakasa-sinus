@@ -72,32 +72,18 @@ function populateForecast (data) {
   document.getElementById("humidity2").innerHTML = data[1].main.humidity + "%"
   document.getElementById("humidity3").innerHTML = data[2].main.humidity + "%"
   document.getElementById("humidity4").innerHTML = data[3].main.humidity + "%"
-  document.getElementById("humidity5").innerHTML = data[4].main.humidity + "%"
+  document.getElementById("humidity5").innerHTML = data[4].main.humidity + "%";
+
+  document.getElementById("datestamp2").textContent = data[0].dt_txt.substr(0,10);
+  document.getElementById("datestamp3").textContent = data[1].dt_txt.substr(0,10);
+  document.getElementById("datestamp4").textContent = data[2].dt_txt.substr(0,10);
+  document.getElementById("datestamp5").textContent = data[3].dt_txt.substr(0,10);
+  document.getElementById("datestamp6").textContent = data[4].dt_txt.substr(0,10);
 }
-
-
-
-
-
-
-//i want to be able to create variables for each of the divs i want to add text to
-
-// const forecastArray = sample.list.filter( (_dayObj, idx) => idx % 8 === 0) //this awesome line of code provided by our instructor to help 
-// console.log(forecastArray)
-
-
-
-
-
-
-
-
-
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
   searchCity()
-  // fiveDay()
 })
 
 
