@@ -1,7 +1,7 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
 
-function searchcity () {
+function searchCity () {
   let citySearch = document.getElementById("input").value;
   let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
   fetch(requestCurrent)
@@ -10,7 +10,7 @@ function searchcity () {
   })
   .then(function (data) {
     console.log(data) //returns an object; now that we have it, if we know how to access the object we can display that data//
-    populateCurrent(data) //we will grab info and set it on page using this fn
+    populateCurrent(data) //we will grab info and set it on page using this fn//
   });
 }
 
@@ -21,23 +21,30 @@ function fiveDay () {
     return response.json()
   })
   .then(function (data) {
-    console.log(data) //data we're getting from open weather 5/day
+    console.log(data)
+    //populateForecast(data) //data we're getting from open weather.org 5/day api//
   });
 }
 
-function populateCurrent (data) { //done
-  document.getElementById("city").innerHTML = data.name
+function populateCurrent (data) { 
+  let cityTitle = document.querySelectorAll(".card-title");
+  for (let i = 0; i < cityTitle.length; i++) { //populates all city names on page//
+    cityTitle[i].innerHTML = data.name
+  }
   temperatureConverter(data)
-  document.getElementById("wind").innerHTML=Math.round(data.wind.speed) + "mph";
-  document.getElementById("humidity").innerHTML=data.main.humidity + "%";
-  
+  document.getElementById("wind").innerHTML = Math.round(data.wind.speed) + "mph";
+  document.getElementById("humidity").innerHTML = data.main.humidity + "%";
 }
 
-function temperatureConverter(data) { //done
+function temperatureConverter(data) { 
   let kelvin = data.main.temp
   kelvin = parseFloat(kelvin);
   document.getElementById("fahrenheit").innerHTML=Math.round(((kelvin-273.15)*1.8))+32; //kelvin -> fahrenheit temp converter found on W3 Schools//
 }
+
+// function populateForecast (data) {
+
+// }
 
 
 
@@ -60,7 +67,8 @@ function temperatureConverter(data) { //done
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
-  searchcity()
+  searchCity()
+  // fiveDay()
 })
 
 
