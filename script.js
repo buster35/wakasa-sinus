@@ -1,7 +1,7 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
 
-function searchCity () { //working
+function searchCity () {
   let citySearch = document.getElementById("input").value;
   let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
   fetch(requestCurrent)
@@ -17,7 +17,8 @@ function searchCity () { //working
 function fiveDay (data) {
   let lat = data.coord.lat
   let lon = data.coord.lon
-  let showForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`; //geocoding api in order to convert city or zip code to lat/long to fetch information in the forecast api;https://openweathermap.org/api/geocoding-api//
+  let showForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
   fetch(showForecast)
   .then(function (response) {
     return response.json()
@@ -35,6 +36,7 @@ function populateCurrent (data) {
   for (let i = 0; i < cityTitle.length; i++) { //populates all city names on page//
     cityTitle[i].innerHTML = data.name
   }
+  getWidget(data)
   temperatureConverter(data)
   console.log(data)
   let currentTime = new Date().toLocaleDateString("en-us", {year:"numeric", month:"short", day:"numeric"});
@@ -82,6 +84,13 @@ function populateForecast (data) {
   document.getElementById("datestamp4").textContent = data[2].dt_txt.substr(0,10);
   document.getElementById("datestamp5").textContent = data[3].dt_txt.substr(0,10);
   document.getElementById("datestamp6").textContent = data[4].dt_txt.substr(0,10);
+}
+
+function getWidget (data) {
+  let widget = data.weather[0].icon
+  console.log(widget)
+  let icon = document.getElementById("icon")
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${widget}@2x.png`) //??????
 }
 
 searchBtn.addEventListener("click", function (e) {
