@@ -41,15 +41,12 @@ function populateCurrent (data) {
   }
   getWidget(data)
   temperatureConverter(data)
-  console.log(data)
   let currentTime = new Date().toLocaleDateString("en-us", {year:"numeric", month:"short", day:"numeric"});
   document.getElementById("datestamp1").textContent = currentTime
   document.getElementById("wind").innerHTML = Math.round(data.wind.speed) + "mph";
   document.getElementById("humidity").innerHTML = data.main.humidity + "%";
   fiveDay(data)
 };
-
-
 
 function temperatureConverter(data) { 
   let kelvin = data.main.temp
@@ -59,13 +56,16 @@ function temperatureConverter(data) {
 
 function populateForecast (data) {
   let arr = []
+  console.log(data)
+  getForecastWidget(data)
   data.forEach(function (temp) {
     let kelvinTemps = temp.main.temp;
     arr.push(kelvinTemps)
   })
   for (let i=0; i < arr.length; i++) {
   arr[i] = Math.round(((arr[i]-273.15)*1.8))+32;
-  } //converting array of 5-day forecast temps in F, then populating HTML//
+  }
+   //converting array of 5-day forecast temps in F, then populating HTML//
   document.getElementById("temp1").innerHTML = arr[0]
   document.getElementById("temp2").innerHTML = arr[1]
   document.getElementById("temp3").innerHTML = arr[2]
@@ -95,7 +95,17 @@ function getWidget (data) {
   let widget = data.weather[0].icon
   let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png"
   document.getElementById("img1").setAttribute("src", widg)
-} 
+}
+
+function getForecastWidget (data) {
+  for (i = 0; i < data.length; i++) {
+    let widget = data[i].weather[0].icon
+    let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png"
+    console.log(widg)
+    let x = $(".forecast-name").eq(i)
+    document.setAttribute ///
+    } //????   
+  }
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
