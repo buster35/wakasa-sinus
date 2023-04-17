@@ -29,7 +29,6 @@ function fiveDay (data) {
   .then(function (data) {
     let sample = data.list //array of 40 objects//
     let forecast = sample.filter((_dayObj, idx) => idx % 8 === 0) //this awesome line of code provided by our instructor//
-    console.log(forecast)
     populateForecast(forecast)
   });
 }
@@ -56,7 +55,6 @@ function temperatureConverter(data) {
 
 function populateForecast (data) {
   let arr = []
-  console.log(data)
   getForecastWidget(data)
   data.forEach(function (temp) {
     let kelvinTemps = temp.main.temp;
@@ -97,14 +95,14 @@ function getWidget (data) {
   document.getElementById("img1").setAttribute("src", widg)
 }
 
-function getForecastWidget (data) {
+function getForecastWidget (data) { //working
+  let xArr = []
   for (i = 0; i < data.length; i++) {
     let widget = data[i].weather[0].icon
-    let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png"
-    console.log(widg)
-    let x = $(".forecast-name").eq(i)
-    document.setAttribute ///
-    } //????   
+    let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png";
+    xArr.push(widg);
+    }
+    console.log(xArr)  
   }
 
 searchBtn.addEventListener("click", function (e) {
