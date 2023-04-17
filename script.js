@@ -1,5 +1,7 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
+let img1 = document.getElementById("")
+
 
 function searchCity () {
   let citySearch = document.getElementById("input").value;
@@ -10,7 +12,8 @@ function searchCity () {
   })
   .then(function (data) {
     //returns an object; now that we have it, if we know how to access the object we can display that data//
-    populateCurrent(data) //we will grab info and set it on page using this fn//
+    populateCurrent(data)
+    //we will grab info and set it on page using this fn//
   });
 }
 
@@ -45,6 +48,8 @@ function populateCurrent (data) {
   document.getElementById("humidity").innerHTML = data.main.humidity + "%";
   fiveDay(data)
 };
+
+
 
 function temperatureConverter(data) { 
   let kelvin = data.main.temp
@@ -88,10 +93,9 @@ function populateForecast (data) {
 
 function getWidget (data) {
   let widget = data.weather[0].icon
-  console.log(widget)
-  let icon = document.getElementById("icon")
-  icon.setAttribute("src", `https://openweathermap.org/img/wn/${widget}@2x.png`) //??????
-}
+  let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png"
+  document.getElementById("img1").setAttribute("src", widg)
+} 
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()

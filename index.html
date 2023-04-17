@@ -19,10 +19,12 @@
     </header>
 
     <main class="bg-none">
-      <div class="container-flex mb-5 p-3">
+      <div class="container-fluid mb-5 p-3">
         <div class="row">
           <div class="col-4">
-            <aside>
+            <aside class="container">
+              <div class="row">
+                <div class="col-12 align-self-start">
               <h2>Search for a City</h2>
               <input
                 id="input"
@@ -66,6 +68,8 @@
                   Button
                 </button>
               </div>
+            </div>
+            </div>
             </aside>
           </div>
 
@@ -78,8 +82,7 @@
                     <div class="card" style="width: auto">
                       <div class="card-body" id="currentwx">
                         <h5 class="card-title" id="city">
-                          City name goes here... <img id="icon"/>
-                         </h5>
+                          City name goes here... </h5><img id="img1">
                          <span id="datestamp1"></span>
                         <p class="card-text">Temperature: <span id="fahrenheit"></span></p>
                         <p class="card-text">Wind: <span id="wind"></span></p>
@@ -92,12 +95,12 @@
 
                 <div class="container-fluid">
                   <section
-                    class="row row-cols-auto five-day-forecast"
+                    class="row row-cols-auto g-2 gap-2 five-day-forecast"
                     id="forecast"
                   >
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
-                        <h5 class="card-title">City name goes here... </h5>
+                        <h5 class="card-title">City name goes here... </h5><img id="img2">
                         <span id="datestamp2"></span>
                         <hr />
                         <p class="card-text">Temperature: <span id="temp1"></span></p>
@@ -107,7 +110,7 @@
                     </div>
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
-                        <h5 class="card-title">City name goes here...</h5>
+                        <h5 class="card-title">City name goes here...</h5><img id="img3">
                         <span id="datestamp3"></span>
                         <hr />
                         <p class="card-text">Temperature: <span id="temp2"></span></p>
@@ -117,7 +120,7 @@
                     </div>
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
-                        <h5 class="card-title">City name goes here...</h5>
+                        <h5 class="card-title">City name goes here...</h5><img id="img4">
                         <span id="datestamp4"></span>
                         <hr />
                         <p class="card-text">Temperature: <span id="temp3"></span></p>
@@ -127,7 +130,7 @@
                     </div>
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
-                        <h5 class="card-title">City name goes here...</h5>
+                        <h5 class="card-title">City name goes here...</h5><img id="img5">
                         <span id="datestamp5"></span>
                         <hr />
                         <p class="card-text">Temperature: <span id="temp4"></span></p>
@@ -137,7 +140,7 @@
                     </div>
                     <div class="card bg-dark" style="width: auto; color: white">
                       <div class="card-body">
-                        <h5 class="card-title">City name goes here...</h5>
+                        <h5 class="card-title">City name goes here...</h5><img id="img6">
                         <span id="datestamp6"></span>
                         <hr />
                         <p class="card-text">Temperature: <span id="temp5"></span></p>
