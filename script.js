@@ -1,6 +1,6 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
-let img1 = document.getElementById("")
+let button = document.querySelector(".btn")
 
 
 function searchCity () {
@@ -14,6 +14,9 @@ function searchCity () {
     //returns an object; now that we have it, if we know how to access the object we can display that data//
     populateCurrent(data)
     //we will grab info and set it on page using this fn//
+    JSON.stringify(data)
+    localStorage.setItem(citySearch, data)
+    storeCity(data) //do i have correct info in localStorage?//
   });
 }
 
@@ -95,15 +98,38 @@ function getWidget (data) {
   document.getElementById("img1").setAttribute("src", widg)
 }
 
-function getForecastWidget (data) { //working
+function getForecastWidget (data) {
   let xArr = []
   for (i = 0; i < data.length; i++) {
     let widget = data[i].weather[0].icon
     let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png";
     xArr.push(widg);
     }
-    console.log(xArr)  
+    $("#img2").attr("src", xArr[0])
+    $("#img3").attr("src", xArr[1])
+    $("#img4").attr("src", xArr[2])
+    $("#img5").attr("src", xArr[3])
+    $("#img6").attr("src", xArr[4])  
   }
+
+function storeCity (data) {
+  console.log(data)
+  let cities = Object.keys(localStorage)
+  console.log(cities) //returns an array so we can do array-specific actions//
+  $(".btn").html(cities[0])
+  if ($(".btn").first === cities[0]) {
+    $(".btn").html(cities[1])
+     }
+     }
+
+function showPrev () {
+
+}
+
+button.addEventListener("click", function (e) {
+  e.preventDefault()
+  
+})
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
