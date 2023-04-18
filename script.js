@@ -116,11 +116,24 @@ function storeCity (data) {
   console.log(data)
   let cities = Object.keys(localStorage)
   console.log(cities) //returns an array so we can do array-specific actions//
-  $(".btn").html(cities[0])
-  if ($(".btn").first === cities[0]) {
-    $(".btn").html(cities[1])
-     }
-     }
+  $("#btn1").html(cities[0])
+  if (cities[1]) {
+    $("#btn2").html(cities[1])
+  }
+  if (cities[2]) {
+    $("#btn3").html(cities[2])
+  }
+  if (cities[3]) {
+    $("#btn4").html(cities[3])
+  }
+  if (cities[4]) {
+    $("#btn5").html(cities[4])
+  }
+  if (cities[5]) {
+    $("#btn6").html(cities[5])
+  }
+  else return;
+};
 
 function showPrev () {
 
