@@ -3,7 +3,6 @@
 }
 
 .btn {
-  border-radius: 10px;
   width: 100%;
 }
 
@@ -14,3 +13,6 @@
 #forecast {
   font-size: 75%;
 }
+
+
+

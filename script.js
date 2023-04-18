@@ -141,7 +141,7 @@ function showPrev () {
 
 button.addEventListener("click", function (e) {
   e.preventDefault()
-  
+  showPrev()
 })
 
 searchBtn.addEventListener("click", function (e) {
