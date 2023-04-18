@@ -24,6 +24,10 @@ GitHub Pages:
 
 ![](./assets/main-page-img.png)
 
+## Credits
+
+Kelvin to Fahrenheit temperature converter inspired by the W3 Schools example: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_temp_converter_kelvin_to_fahrenheit
+
 ## License
 
 Please refer to the license file.
