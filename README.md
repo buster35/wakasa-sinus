@@ -18,7 +18,7 @@ Second, the page will store each search in local storage and list each previous 
 
 GitHub: https://github.com/buster35/wakasa-sinus
 
-GitHub Pages: 
+GitHub Pages: https://buster35.github.io/wakasa-sinus/
 
 ## Screenshot
 
