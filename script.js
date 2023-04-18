@@ -1,10 +1,20 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
 let button = document.getElementById("buttons")
+  
+function getCity () {
+let citySearch = document.getElementById("input").value;
+  if (
+      button.addEventListener("click", function (e) {
+        e.preventDefault()
+        let pastCity = e.target.innerHTML //returns the value in the button that was pressed in the vertical button group//
+        citySearch = pastCity
+        searchCity(citySearch)
+  }));
+  else searchCity(citySearch)
+}
 
-
-function searchCity () {
-  let citySearch = document.getElementById("input").value;
+function searchCity (citySearch) {
   let requestCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}`;
   fetch(requestCurrent)
   .then(function (response) {
@@ -132,21 +142,11 @@ function storeCity (data) {
   if (cities[5]) {
     $("#btn6").html(cities[5])
   }
-  button.addEventListener("click", function (e) {
-    e.preventDefault()
-    let pastCity = e.target.innerHTML //got it; returns the value in the button//
-    console.log(pastCity)
-    showPrev(pastCity)
-  })
 };
-
-function showPrev (data) {
-  
-}
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
-  searchCity()
+  getCity()
 })
 
 
