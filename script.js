@@ -1,6 +1,6 @@
 let apiKey = "6f86c92e5bf1e1464a6de7b897f7f7dd";
 let searchBtn = document.getElementById("searchbtn");
-let button = document.querySelector(".btn")
+let button = document.getElementById("buttons")
 
 
 function searchCity () {
@@ -12,11 +12,11 @@ function searchCity () {
   })
   .then(function (data) {
     //returns an object; now that we have it, if we know how to access the object we can display that data//
-    populateCurrent(data)
     //we will grab info and set it on page using this fn//
+    populateCurrent(data)
     JSON.stringify(data)
     localStorage.setItem(citySearch, data)
-    storeCity(data) //do i have correct info in localStorage?//
+    storeCity(data)
   });
 }
 
@@ -72,7 +72,7 @@ function populateForecast (data) {
   document.getElementById("temp3").innerHTML = arr[2]
   document.getElementById("temp4").innerHTML = arr[3]
   document.getElementById("temp5").innerHTML = arr[4]
-  //can i array these?
+
   document.getElementById("wind1").innerHTML = Math.round(data[0].wind.speed) + "mph"
   document.getElementById("wind2").innerHTML = Math.round(data[1].wind.speed) + "mph"
   document.getElementById("wind3").innerHTML = Math.round(data[2].wind.speed) + "mph"
@@ -92,7 +92,7 @@ function populateForecast (data) {
   document.getElementById("datestamp6").textContent = data[4].dt_txt.substr(0,10);
 }
 
-function getWidget (data) {
+function getWidget (data) { //wx icons available without a separate api call; parsing the associated icon code into the url//
   let widget = data.weather[0].icon
   let widg = "https://openweathermap.org/img/wn/" + widget + "@2x.png"
   document.getElementById("img1").setAttribute("src", widg)
@@ -132,17 +132,17 @@ function storeCity (data) {
   if (cities[5]) {
     $("#btn6").html(cities[5])
   }
-  else return;
+  button.addEventListener("click", function (e) {
+    e.preventDefault()
+    let pastCity = e.target.innerHTML //got it; returns the value in the button//
+    console.log(pastCity)
+    showPrev(pastCity)
+  })
 };
 
-function showPrev () {
-
+function showPrev (data) {
+  
 }
-
-button.addEventListener("click", function (e) {
-  e.preventDefault()
-  showPrev()
-})
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault()
